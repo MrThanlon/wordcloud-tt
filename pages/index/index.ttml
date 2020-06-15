@@ -1,0 +1,35 @@
+<import src="../common/head.ttml" />
+
+<view class="container">
+    <progress class="progress" percent="{{progressPercent}}" stroke-width="10" tt:if="{{showProgress}}"/>
+    <template is="head" data="{{title: '词云小程序'}}"/>
+    <view class="page-body">
+        <view class="page-section page-section-gap" tt:if="{{showImg}}">
+            <view class="page-section-title">词云</view>
+            <view class="page-section-ctn">
+                <image class="image" src="{{imgPosition}}"/>
+            </view>
+        </view>
+        <form catchsubmit="formSubmit" catchreset="formReset">    
+            <view class="page-section">
+                <view class="page-section-title">输入</view>
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell">
+                        <view class="weui-cell__bd">
+                            <textarea placeholder="请输入文字或文本"
+                            class="weui-textarea"
+                            name="input"
+                            maxlength="100000000"/>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="btn-area">
+                <button bindtap="choose">{{chooseFile}}</button>
+                <button type="primary" formType="submit">{{submit}}</button>
+                <button formType="reset">{{reset}}</button>
+            </view>
+        </form>
+    </view>
+</view>
